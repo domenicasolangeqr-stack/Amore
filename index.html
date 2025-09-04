@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juego del Amor 💚</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to top right, #336630, #99cc99);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Secciones */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+    max-width: 900px;
+    width: 100%;
+}
+
+/* Mensaje especial */
+#mensajeEspecial h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px #0004;
+    color: #dff5e1;
+}
+#mensajeEspecial p {
+    font-size: 1.2em;
+    max-width: 700px;
+    text-shadow: 1px 1px 2px #0004;
+    color: #f0fff0;
+    line-height: 1.6;
+}
+
+/* Poema */
+.poema {
+    text-align: center;
+    font-style: italic;
+    white-space: pre-line;
+    color: #d8ffd8;
+    font-size: 1.3em;
+    margin: 20px 0;
+}
+#familia {
+    gap: 20px;
+}
+#familia img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 15px #0004;
+    margin: 10px 0;
+}
+#familia a {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #e0ffe0;
+    font-weight: bold;
+    text-decoration: none;
+}
+#familia a:hover {
+    color: #b4ffb4;
+    text-decoration: underline;
+}
+#fotoNuestra {
+    gap: 20px;
+}
+#fotoNuestra img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 20px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 15px #0004;
+    margin: 10px 0;
+}
+#fotoNuestra a {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #e0ffe0;
+    font-weight: bold;
+    text-decoration: none;
+}
+#fotoNuestra a:hover {
+    color: #b4ffb4;
+    text-decoration: underline;
+}
+
+/* Juego */
+#game {
+    position: relative;
+    width: 90vw;
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    border: 3px solid #fff;
+    background: #dff5e1;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.sprite {
+    position: absolute;
+    width: 15%; /* ajustado para móviles */
+    height: auto;
+    max-width: 60px;
+}
+
+/* posiciones iniciales */
+#chico { left: 5%; top: 5%; }
+#chica { right: 5%; bottom: 5%; }
+#perro { left: 40%; top: 40%; }
+
+#mensajeJuego {
+    font-size: 1em;
+    font-weight: bold;
+    color: #eaffea;
+}
+
+/* Burbujas de diálogo */
+.burbuja {
+    position: absolute;
+    padding: 6px 10px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    max-width: 120px;
+    text-align: center;
+    box-shadow: 0 0 8px #0004;
+    font-size: 0.9em;
+}
+.burbuja.chico { background: #a3f4c5; }
+.burbuja.chica { background: #b9f4a3; }
+.burbuja.perro { background: #f4f1a3; }
+
+/* Responsivo */
+@media (max-width: 768px) {
+    #mensajeEspecial h1 { font-size: 1.6em; }
+    #mensajeEspecial p { font-size: 1em; }
+    .poema { font-size: 1.1em; }
+    #fotoNuestra img, #familia img { max-width: 90%; }
+    .sprite { width: 20%; max-width: 50px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Mensaje especial -->
+<section id="mensajeEspecial">
+    <h1>Para ti 💚</h1>
+    <p style="text-align: justify;">
+        Los estoicos creían que se debe vivir de acuerdo con la razón y la armonía del universo.
+        Jose, desde el día que te conocí, la razón y la armonía jamás volvieron a estar juntas.
+        Conocí el paraíso que habitas, conocí tus ojos y tu amor, entonces ya nada tuvo sentido. 
+        Dejé de usar la razón, mi mente no volvió a estar quieta porque siempre estas tú, viviéndome, 
+        habitándome como si jamás hubieras tenido que pedir permiso.
+        Estoy curiosamente loca por ti, no puedo imaginarte dándole tu amor a alguien que no sea yo, 
+        no puedo imaginarte compartiendo aventuras o tan solo una sonrisa con alguien más.
+        Quiero estar aquí siempre, de tu mano, en tu pecho o simplemente con tu mano en mi pierna mientras el mundo trascurre. 
+    </p>
+    <div class="poema">
+        Ni ardiente sol ni tempestad<br>
+        jamás podrán dejarme,<br>
+        Prométeme tu corazón<br>
+        y amarme por la eternidad.<br><br>
+        Mi gran amor mi salvación,<br>
+        me admira ver tu fuerza<br>
+        No necesito más acción<br>
+        Si tus brazos me rodean.
+    </div>
+    <p style="text-align: justify;">
+        Cada silencio contigo es una expresión de nuestro más grande amor porque incluso dentro de la tempestad, yo pretendo
+        perder la razón por ti, perdería todo si eso implicara que nos quedemos amándonos. <br>
+        Te amo <br>
+        -Cinderella. <br>
+    </p>
+</section>
+<!-- Fotos -->
+<section id="familia">
+   <img src="Vikingos.png" alt="Familia">
+    <a href="https://open.spotify.com/track/3yrtjmDQl1IrJihuqe03aS?si=2d5197eb2940437c"> La canción que sonaría si fuéramos vikingos. Haz click, aquí. </a>
+</section>
+
+<section id="fotoNuestra">
+    <img src="SYJ.jpg" alt="Foto nuestra">
+    <a href="https://open.spotify.com/track/22ylgu9GmOdAQztIjRpXJO?si=p3qh0Zo6Q_OUYkirt8Z8vQ">Yo aprendí del amor, viviéndote. Haz click, aquí.</a>
+</section>
+
+<!-- Juego -->
+<section id="juego">
+    <h1>Juego del Amor 💘</h1>
+    <div id="game">
+        <img id="chico" class="sprite" src="j.png" alt="Chico">
+        <img id="chica" class="sprite" src="s.png" alt="Chica">
+        <img id="perro" class="sprite" src="Gauss.png" alt="Perro">
+    </div>
+    <p id="mensajeJuego">Usa las flechas del ordenador para moverte</p>
+</section>
+
+<script>
+const chico = document.getElementById("chico");
+const chica = document.getElementById("chica");
+const perro = document.getElementById("perro");
+const game = document.getElementById("game");
+
+let chicoX = game.offsetWidth * 0.05;
+let chicoY = game.offsetHeight * 0.05;
+let pasoPerro = false;
+let encontroChica = false;
+
+function mostrarBurbuja(texto, personaje, x, y) {
+    const burbuja = document.createElement('div');
+    burbuja.classList.add('burbuja', personaje);
+    burbuja.style.left = x + 'px';
+    burbuja.style.top = y + 'px';
+    burbuja.textContent = texto;
+    game.appendChild(burbuja);
+
+    requestAnimationFrame(() => { burbuja.style.opacity = 1; });
+    setTimeout(() => {
+        burbuja.style.opacity = 0;
+        setTimeout(() => game.removeChild(burbuja), 600);
+    }, 2500);
+}
+
+document.addEventListener("keydown", (e) => {
+    const paso = game.offsetWidth * 0.05; // mueve proporcional a tamaño
+    if (e.key === "ArrowUp") chicoY -= paso;
+    if (e.key === "ArrowDown") chicoY += paso;
+    if (e.key === "ArrowLeft") chicoX -= paso;
+    if (e.key === "ArrowRight") chicoX += paso;
+
+    chicoX = Math.max(0, Math.min(game.clientWidth - chico.clientWidth, chicoX));
+    chicoY = Math.max(0, Math.min(game.clientHeight - chico.clientHeight, chicoY));
+
+    chico.style.left = chicoX + "px";
+    chico.style.top = chicoY + "px";
+
+    if (!pasoPerro && colision(chico, perro)) {
+        pasoPerro = true;
+        mostrarBurbuja(encontroChica ? "¡Estamos completos! 💖🐶" : "¡Falta mamá! 🐶", "perro", perro.offsetLeft, perro.offsetTop - 50);
+    }
+
+    if (!encontroChica && colision(chico, chica)) {
+        encontroChica = true;
+        mostrarBurbuja(pasoPerro ? "¡Estamos completos! 💖🐶" : "Nos falta Gauss 🐶🚫", "chica", chica.offsetLeft, chica.offsetTop - 50);
+    }
+});
+
+function colision(a, b) {
+    const aRect = a.getBoundingClientRect();
+    const bRect = b.getBoundingClientRect();
+    return !(
+        aRect.top > bRect.bottom ||
+        aRect.bottom < bRect.top ||
+        aRect.left > bRect.right ||
+        aRect.right < bRect.left
+    );
+}
+</script>
+
+</body>
+</html>
+
